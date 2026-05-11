@@ -9,23 +9,23 @@ Estimate a 1-Hz (1-second) time series of **relative spread** from trades-only d
 - **Allowed trade inputs only (unsigned):** trade price, trade volume, trade timestamp.
 - **No signed trade direction** (no buyer/seller initiator labels).
 - Validation target uses order-book data:  
-  \[
+  $$
   \text{Relative Spread}_t = \frac{\text{Ask}_t - \text{Bid}_t}{(\text{Ask}_t + \text{Bid}_t)/2}
-  \]
+  $$
 
 ### Method (Roll Model Core)
 At the trade level, compute price changes:
-\[
+$$
 \Delta p_i = p_i - p_{i-1}
-\]
+$$
 Under Roll-style microstructure assumptions, adjacent trade-price changes have negative autocovariance:
-\[
+$$
 \text{Cov}(\Delta p_i,\Delta p_{i-1}) < 0
-\]
+$$
 The implied effective spread estimate is:
-\[
+$$
 \hat{S}_i = 2\sqrt{-\text{Cov}(\Delta p_i,\Delta p_{i-1})}
-\]
+$$
 
 Convert this to a **1-second series** by estimating covariance in rolling windows and mapping spread to relative terms using a local mid-price proxy from trades.
 
