@@ -32,13 +32,13 @@ Convert this to a **1-second series** by estimating covariance in rolling window
 ### Suggested 1-Hz Pipeline
 1. Clean trade prints (de-duplicate obvious repeats, sort by time, remove bad ticks).
 2. Aggregate trades into 1-second buckets.
-3. In each rolling window (e.g., 30-300 seconds), estimate lag-1 covariance of \(\Delta p\).
-4. Convert \(\hat{S}\) to relative spread using a local price level.
-5. Output \(\hat{s}_t^{\text{roll}}\): estimated 1-second relative spread series.
-6. Compare to observed order-book relative spread \(s_t^{\text{book}}\).
+3. In each rolling window (e.g., 30-300 seconds), estimate lag-1 covariance of $\Delta p$.
+4. Convert $\hat{S}$ to relative spread using a local price level.
+5. Output $\hat{s}_t^{\text{roll}}$: estimated 1-second relative spread series.
+6. Compare to observed order-book relative spread $s_t^{\text{book}}$.
 
 ### Validation Plan
-- **Primary metrics:** correlation, MAE, RMSE between \(\hat{s}_t^{\text{roll}}\) and \(s_t^{\text{book}}\).
+- **Primary metrics:** correlation, MAE, RMSE between $\hat{s}_t^{\text{roll}}$ and $s_t^{\text{book}}$.
 - **Diagnostics:** intraday stability plots, error by liquidity regime (high versus low trade activity), robustness to window length.
 - **Baseline checks:** persistence baseline and simple moving-average benchmark.
 
