@@ -16,6 +16,7 @@ __pycache__/
 
 # Data files — large binaries, not version-controlled
 data/
+*.parquet
 
 # Pytest / coverage
 .pytest_cache/
