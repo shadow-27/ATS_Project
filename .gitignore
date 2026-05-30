@@ -36,3 +36,14 @@ Thumbs.db
 dist/
 build/
 *.egg-info/
+
+# Project outputs / presentation artifacts (not for git)
+notebooks/00_walkthrough.ipynb
+ATS_Project_Presentation.pptx
+EXPLAINER.md
+build_presentation.py
+
+# Presentation scripts / speaker notes (generated/wip)
+ATS_speaker_notes.md
+notebooks/ats_notebooks_script.md
+src/ats_src_script.md
